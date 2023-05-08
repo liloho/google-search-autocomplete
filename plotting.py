@@ -5,9 +5,9 @@ import matplotlib.patches as patches
 from matplotlib import font_manager
 
 #load custom fonts
-letter_font = font_manager.FontProperties(fname='assets\\fonts\\Take cover.ttf')
-subtitle_font = font_manager.FontProperties(fname='assets\\fonts\\Inter-Medium.ttf')
-label_font = font_manager.FontProperties(fname='assets\\fonts\\OpenSans-Regular.ttf')
+letter_font = font_manager.FontProperties(fname='assets/fonts/Take cover.ttf')
+subtitle_font = font_manager.FontProperties(fname='assets/fonts/Inter-Medium.ttf')
+label_font = font_manager.FontProperties(fname='assets/fonts/OpenSans-Regular.ttf')
 
 #add line break when printing long prompts
 def format_prompt_for_plot(prompt):
