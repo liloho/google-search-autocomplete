@@ -203,4 +203,3 @@ dependencies:
     - urllib3==2.0.2
     - validators==0.20.0
     - watchdog==3.0.0
-prefix: C:\Users\lisa.hornung\anaconda3\envs\gsearch
