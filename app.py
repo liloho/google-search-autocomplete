@@ -1,4 +1,3 @@
-from msilib.sequence import tables
 import streamlit as st
 from iso3166 import countries
 from data_processing import *
