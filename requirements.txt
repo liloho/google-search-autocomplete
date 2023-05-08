@@ -1,0 +1,5 @@
+#requirements for streamlit app
+streamlit==1.22.0
+matplotlib
+iso3166==2.1.1
+beautifulsoup4=4.12.2
