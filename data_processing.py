@@ -15,11 +15,11 @@ def get_suggestions(prompt, seed, country):
         soup = BeautifulSoup(r.content, 'html.parser')
         results = [result['data'] for result in soup.find_all('suggestion')]
         data.append(results[0:3])
-        time.sleep(0.02)
+        time.sleep(0.01)
     return data
 
 #derive first relevant match for viz
-def get_relevant_results(data, prompt, seed):
+def get_relevant_results(data, seed, prompt):
     df = {"letter": [c.upper() for c in seed], "result":[]}
     for kw, result in enumerate(data):
         success = 0
