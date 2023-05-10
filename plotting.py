@@ -26,7 +26,7 @@ def format_prompt_for_plot(prompt):
 # === LAYOUTS
 
 # circular outward
-def plot_circular_outward(data_for_plot, prompt):
+def plot_circular_outward(data_for_plot, prompt, bg_colour, font_colour, line_colour):
     
     df = data_for_plot
     prompt_print = format_prompt_for_plot(prompt)
@@ -36,6 +36,8 @@ def plot_circular_outward(data_for_plot, prompt):
     fig,ax = plt.subplots(figsize=(15, 11), layout="tight")
     height = 26         
     width = 10
+
+    fig.set_facecolor(bg_colour)
     
     # calculate offet
     array = np.linspace(0, 1*np.pi, height)
@@ -57,17 +59,17 @@ def plot_circular_outward(data_for_plot, prompt):
         verts = [(center_x, center_y), (center_x +indent*1.2, center_y), (center_x -indent*0.2, center_y), (x_pos, y_pos)] 
         codes = [Path.MOVETO] + [Path.CURVE4] * 3
         path = Path(verts, codes)
-        patch = patches.PathPatch(path, facecolor='none', lw=1, edgecolor='#111111')
+        patch = patches.PathPatch(path, facecolor='none', lw=1, edgecolor=line_colour)
         ax.add_patch(patch)
         
         #plot letter
         ax.text(x_pos , y_pos,df["letter"].iloc[i] , va="center",ha="center",
-               fontsize=24, fontproperties=letter_font,color="#111111",
+               fontsize=24, fontproperties=letter_font,color=font_colour,
                bbox=dict(facecolor='white', edgecolor='none', boxstyle='round,pad=0.0'))
         
         #plot text
         ax.text(x_pos+0.3 , y_pos, df["result"].iloc[i].replace(prompt.lower() + " ", "") , va="center",ha="left",
-               fontsize=15, fontproperties=subtitle_font, color='#111111')
+               fontsize=15, fontproperties=subtitle_font, color=font_colour)
     
     #configure axes
     ax.set_ylim(-1, height+1)
@@ -77,11 +79,11 @@ def plot_circular_outward(data_for_plot, prompt):
     #=====
     #Title and footer
     ax.text(center_x -0.3, center_y, prompt_print , va="center",ha="right",
-               fontsize=50, fontproperties=letter_font, color="#111111")
+               fontsize=50, fontproperties=letter_font, color=font_colour)
     ax.text(center_x -0.3, center_y-5,"Google autocomplete\nsuggestions" , va="center",ha="right",
-               fontsize=15, fontproperties=subtitle_font, color="#111111")
+               fontsize=15, fontproperties=subtitle_font, color=font_colour)
 
     if sum(data_for_plot["result"].str.find("*")) != -26:
-        ax.text(center_x -0.3, center_y-7, "*no relevant results", fontproperties= label_font, fontsize=12,  ha="right")
+        ax.text(center_x -0.3, center_y-7, "*no relevant results", fontproperties= label_font, fontsize=12,  ha="right", color=font_colour)
     
     return fig
