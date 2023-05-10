@@ -5,7 +5,7 @@ from plotting import *
 
 st.set_page_config(
     page_title="Search Roulette",
-    page_icon="❔",
+    page_icon="assets/images/roulette-icon-light.png",
     layout="wide",
     initial_sidebar_state="collapsed"
      )
@@ -18,7 +18,7 @@ for c in countries:
 col1a, col1b,col1c = st.columns([0.225,0.55,0.225])
 with col1b:
     st.title('Search Roulette')
-    st.markdown("#### Google search autocomplete suggestions for any prompt")
+    st.markdown("#### Get Google search autocomplete suggestions for any prompt")
     st.markdown("Note: Currently limited to Latin alphabets")
 
     with st.form(key='update prompt'):
@@ -32,11 +32,11 @@ with col1b:
         
         col1b_2a, col1b_2b, col1b_2c, col1b_2d  = st.columns([1,1,1,2])
         with col1b_2a:
-                bg_colour = st.color_picker("Background colour", "#F9F9F9")
+                bg_colour = st.color_picker("Background colour", "#EFEFEF")
         with col1b_2b:
-                font_colour = st.color_picker("Font colour", "#000000")
+                font_colour = st.color_picker("Font colour", "#142F67")
         with col1b_2c:
-                line_colour = st.color_picker("Line colour", "#000000")
+                line_colour = st.color_picker("Line colour", "#A03872")
         st.form_submit_button('Update')
 
     #get and transform data based on inputs

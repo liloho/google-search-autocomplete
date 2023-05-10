@@ -65,7 +65,7 @@ def plot_circular_outward(data_for_plot, prompt, bg_colour, font_colour, line_co
         #plot letter
         ax.text(x_pos , y_pos,df["letter"].iloc[i] , va="center",ha="center",
                fontsize=24, fontproperties=letter_font,color=font_colour,
-               bbox=dict(facecolor='white', edgecolor='none', boxstyle='round,pad=0.0'))
+               bbox=dict(facecolor=bg_colour, edgecolor='none', boxstyle='round,pad=0.0'))
         
         #plot text
         ax.text(x_pos+0.3 , y_pos, df["result"].iloc[i].replace(prompt.lower() + " ", "") , va="center",ha="left",

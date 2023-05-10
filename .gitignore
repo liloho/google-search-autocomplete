@@ -4,10 +4,8 @@ __pycache__/data_processing.cpython-311.pyc
 cache/
 
 # exclude images
-*.png
-*.jpg
-*.jpeg
-*.svg
+google-search-autocomplete.png
+google-search-autocomplete.svg
 
 #exclude files solely used for testing
 test.py
