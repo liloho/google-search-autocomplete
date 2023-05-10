@@ -8,3 +8,6 @@ cache/
 *.jpg
 *.jpeg
 *.svg
+
+#exclude files solely used for testing
+test.py
