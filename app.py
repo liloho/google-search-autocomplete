@@ -15,10 +15,10 @@ for c in countries:
        country_names.append(c[0])
 
 #==== Main App
-col1a, col1b,col1c = st.columns([0.225,0.55,0.225])
+col1a, col1b,col1c = st.columns([0.2,0.6,0.2])
 with col1b:
     st.title('Search Roulette')
-    st.markdown("#### Get Google search autocomplete suggestions for any prompt")
+    st.markdown("#### Visualise Google search autocomplete suggestions")
     st.markdown("Note: Currently limited to Latin alphabets")
 
     with st.form(key='update prompt'):
@@ -30,7 +30,7 @@ with col1b:
             country_code = countries.get(country)[1]
         seed = [c for c in ascii_lowercase]
         
-        col1b_2a, col1b_2b, col1b_2c, col1b_2d  = st.columns([1,1,1,2])
+        col1b_2a, col1b_2b, col1b_2c, col1b_2d  = st.columns([1,1,1,3])
         with col1b_2a:
                 bg_colour = st.color_picker("Background colour", "#EFEFEF")
         with col1b_2b:
@@ -46,7 +46,7 @@ with col1b:
 
 #create and visualise plot
 fig = plot_circular_outward(data_for_plot, prompt, bg_colour, font_colour, line_colour)
-col2a, col2b,col2c = st.columns([0.225,0.55,0.225])
+col2a, col2b,col2c = st.columns([0.2,0.6,0.2])
 with col2b:
     st.write(fig)
 
